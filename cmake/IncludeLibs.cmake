@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.21)
 add_library(third_party INTERFACE)
 
-CPMAddPackage("gh:EclipseMenu/rift#60c9a83")
+CPMAddPackage(
+    NAME rift
+    GIT_REPOSITORY https://git.eclipse.menu/EclipseMenu/rift
+    GIT_TAG 60c9a83
+)
 
 if (CMAKE_BUILD_TYPE STREQUAL "Debug" AND WIN32)
     target_compile_definitions(rift PRIVATE _HAS_ITERATOR_DEBUGGING=0)
